@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1558405603 source:c:\jose\tp_maquina_busca\leitura.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	"leitura.h"
+
+1558405346 c:\jose\tp_maquina_busca\leitura.h
+	<string>
+	<fstream>
+	<list>
+	<vector>
+
+1558405653 source:c:\jose\tp_maquina_busca\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	"leitura.h"
+
