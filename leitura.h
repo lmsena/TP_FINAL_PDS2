@@ -5,6 +5,7 @@
 #include <fstream>
 #include<list>
 #include<vector>
+#include<map>
 using namespace std;
 
 class Leitura{
