@@ -20,6 +20,7 @@ class Leitura{
         void Tudominusculo(string&word);
         void TiraCaracter(string&word);
         int Ocorrencias(string word,list<string>palavras);
+       //calcula o idf 
         double indicie_invertido();
         //~Leitura();
         //
