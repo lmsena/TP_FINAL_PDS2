@@ -1,4 +1,3 @@
-
 #ifndef LEITURA_H
 #define LEITURA_H
 #include <string>
@@ -6,6 +5,9 @@
 #include<list>
 #include<vector>
 #include<map>
+#include <iostream>
+#include<algorithm>
+#include<set>
 using namespace std;
 
 class Leitura{
@@ -16,6 +18,7 @@ class Leitura{
         void ReadFile(int qtdArquivos);
         void Tudominusculo(string&word);
         void TiraCaracter(string&word);
+        int Ocorrencias(string word,list<string>palavras);
         //~Leitura();
         //
 
@@ -24,14 +27,15 @@ class Leitura{
         string word;
         vector <string> nomeArquivo;
         int quantidadeArquivos;
+        map<string, set<string> > palavras;
+        set<string> nomesArquivos;
+       
+        //fazem a mesma variavel?
         list<string>listaPalavras;
-
-
-
+        list<string> palavrasDoc;
+    
+        
 };
-
-
-
 
 
 #endif
