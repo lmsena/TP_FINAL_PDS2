@@ -69,3 +69,19 @@ Leitura::Leitura(int qtdArquivos){
     ReadFile(qtdArquivos);
 
 }
+
+
+double leitura::indicie_invertido()
+{
+    
+    indicieInvertido = log2(quantidadeArquivos / Ocorrencias());
+   
+   // indicieInvertido = log2(quantidadeArquivos / (set<string>palavras.size()));
+    
+   // indicieInvertido = log2(quantidadeArquivos / (palavras.set<string>.size()));
+    
+    return indicieInvertido;
+    
+}
+
+
