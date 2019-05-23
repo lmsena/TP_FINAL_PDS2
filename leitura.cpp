@@ -71,7 +71,7 @@ Leitura::Leitura(int qtdArquivos){
 }
 
 
-double leitura::indicie_invertido()
+double Leitura::indicie_invertido()
 {
     
     indicieInvertido = log2(quantidadeArquivos / Ocorrencias());
