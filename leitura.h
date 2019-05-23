@@ -8,6 +8,7 @@
 #include <iostream>
 #include<algorithm>
 #include<set>
+#include<cmath>
 using namespace std;
 
 class Leitura{
@@ -19,6 +20,7 @@ class Leitura{
         void Tudominusculo(string&word);
         void TiraCaracter(string&word);
         int Ocorrencias(string word,list<string>palavras);
+        double indicie_invertido();
         //~Leitura();
         //
 
@@ -33,9 +35,15 @@ class Leitura{
         //fazem a mesma variavel?
         list<string>listaPalavras;
         list<string> palavrasDoc;
-    
+        double indicieInvertido;
         
+
+
+
 };
+
+
+
 
 
 #endif
