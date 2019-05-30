@@ -19,7 +19,7 @@ private:
 
 public:
     double indicie_invertido();
-    Palavra();
+    Palavra(string p, list<string> docTxt);
     ~Palavra();
 
 
