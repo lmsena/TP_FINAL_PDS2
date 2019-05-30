@@ -13,12 +13,14 @@ using namespace std;
 class Palavra
 {
 private:
-    string word;
-    set<string> documentosTxt;
+    string wordP;
+    set<string> documentosTxt; //documentos que word pertence
     double indicieInvertido;
 
 public:
     double indicie_invertido();
+    Palavra();
+    ~Palavra();
 
 
 };
