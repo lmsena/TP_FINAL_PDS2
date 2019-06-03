@@ -1,6 +1,17 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include<algorithm>
 #include"leitura.h"
+#include<list>
+#include<set>
+#include<vector>
+using namespace std;
 
-//converte os caracteres de uma string que s√£o maiusculos para minusculo
+
+
+
+//converte os caracteres de uma string que s„o maiusculos para minusculo
 void Leitura::Tudominusculo(string&word){
     for(unsigned int i=0;i<word.size();i++){
         word[i]=tolower(word[i]);
@@ -18,10 +29,11 @@ void Leitura::TiraCaracter(string&word){
     }
 }
 //Retorna o numero de vezes que a palavra apareceu em um arquivo
-int Leitura::Ocorrencias(string word,list<string>palavras){
+int Leitura::TermFrequency(string word,vector< list<string> >palavras,int i){
+    list<string>aux=palavras[i];
     list<string>::iterator it;
     int ocorrencias=0;
-    for(it=palavras.begin();it!=palavras.end();it++){
+    for(it=aux.begin();it!=aux.end();it++){
         if(*it==word){
             ocorrencias++;
         }
@@ -40,9 +52,10 @@ void Leitura::ReadFile(int qtdArquivos){
         nomeArquivo.push_back(auxiliar);
     }
 
-       // list<string> palavrasDoc;
-       // map<string, set<string> > palavras;
-       // set<string> nomesArquivos;
+        map<string, set<string> > palavras;
+        string wordAux;
+        //unsigned int k;
+        set<string> nomesArquivos;
 
 
     for(int i=0;i<qtdArquivos;i++){
@@ -57,31 +70,33 @@ void Leitura::ReadFile(int qtdArquivos){
             Tudominusculo(word);
             //*****para testar a palavra depois de tirar carct e converter
             cout<<word<<endl;
-            //j√° insere a palavra lida e manipulada na lista de palavras do documento
-            palavrasDoc.push_back(word);
+            //j· insere a palavra lida e manipulada na lista de palavras do documento
+            wordFile.push_back(word);
             //associa a palavra ao arquivo que a contem
             palavras[word]=nomesArquivos;
             }
+        palavrasDocs.push_back(wordFile);
+        arquivo_.close();
+    //separa cada palavra e armazena o documento no set do map
+        //for(unsigned int j = 0; j<word.size(); j++)
+        //{
+          //  if(word[j] == ' ' || word[j] == '\0')
+            //{
+              //  k = 0;
+                //palavrasDoc.push_back(wordAux);
+                //palavras[palavrasDoc.back()] = nomesArquivos;
+
+           // } else
+             //   {
+               //     k = 0;
+                 //   wordAux[k] = word[j];
+                   // k++;
+                //}
+        //}
     }
-cout<<this->Ocorrencias("ragnar",palavrasDoc);
+cout<<this->TermFrequency("labrador",palavrasDocs,1);
 }
 Leitura::Leitura(int qtdArquivos){
     ReadFile(qtdArquivos);
 
 }
-
-
-double Leitura::indicie_invertido()
-{
-    
-    indicieInvertido = log2(quantidadeArquivos / Ocorrencias());
-   
-   // indicieInvertido = log2(quantidadeArquivos / (set<string>palavras.size()));
-    
-   // indicieInvertido = log2(quantidadeArquivos / (palavras.set<string>.size()));
-    
-    return indicieInvertido;
-    
-}
-
-
