@@ -1,17 +1,16 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include<algorithm>
 #include"leitura.h"
-#include<list>
-#include<set>
-#include<vector>
-using namespace std;
 
+//Retorna true se uma palavra pertence a um arquivo
+bool Leitura::Pertence(string word){
+    if(palavras.find(word)==palavras.end()){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
-
-
-//converte os caracteres de uma string que s„o maiusculos para minusculo
+//converte os caracteres de uma string que s√£o maiusculos para minusculo
 void Leitura::Tudominusculo(string&word){
     for(unsigned int i=0;i<word.size();i++){
         word[i]=tolower(word[i]);
@@ -45,58 +44,60 @@ int Leitura::TermFrequency(string word,vector< list<string> >palavras,int i){
 void Leitura::ReadFile(int qtdArquivos){
 
 
-    for(int i=0;i<qtdArquivos;i++){
-        cout<<"Digite o nome do arquivo no formato file.txt"<<endl;
-        string auxiliar;
-        cin>>auxiliar;
-        nomeArquivo.push_back(auxiliar);
-    }
-
-        map<string, set<string> > palavras;
+        nomeArquivo.push_back("teste.txt");
+        nomeArquivo.push_back("young.txt");
+        nomeArquivo.push_back("music.txt");
+       
         string wordAux;
-        //unsigned int k;
-        set<string> nomesArquivos;
-
+       
+     /*
+      * forma para inserir quantidades grandes de arquivos  
+  
+        string wordQ;
+        for(int q = 0; q<qtdArquivos; q++)
+        {
+            cout << "insira o nome do aruivo: "; 
+            cin >> wordQ;
+            nomeArquivo.push_back(wordQ);
+        }
+     */
 
     for(int i=0;i<qtdArquivos;i++){
         arquivo_.open(nomeArquivo[i].c_str(),std::ios::in);
-
-      //insere o nome do arquivo no set para o map
-      nomesArquivos.insert(nomeArquivo[i]);
-
         while(!arquivo_.eof())
             {
             arquivo_>>word;
             Tudominusculo(word);
             //*****para testar a palavra depois de tirar carct e converter
-            cout<<word<<endl;
-            //j· insere a palavra lida e manipulada na lista de palavras do documento
+            //cout<<word<<endl;
+            
+            //j√° insere a palavra lida e manipulada na lista de palavras do documento
             wordFile.push_back(word);
-            //associa a palavra ao arquivo que a contem
-            palavras[word]=nomesArquivos;
+            if(!Pertence(word)){
+                set<string>indicePalavras;
+                indicePalavras.insert(nomeArquivo[i]);
+                palavras[word]=indicePalavras;
             }
+            else{
+                set<string>indicePalavrasRepetidas=palavras[word];
+                indicePalavrasRepetidas.insert(nomeArquivo[i]);
+                palavras[word]=indicePalavrasRepetidas;
+            }
+          
+          }
         palavrasDocs.push_back(wordFile);
         arquivo_.close();
-    //separa cada palavra e armazena o documento no set do map
-        //for(unsigned int j = 0; j<word.size(); j++)
-        //{
-          //  if(word[j] == ' ' || word[j] == '\0')
-            //{
-              //  k = 0;
-                //palavrasDoc.push_back(wordAux);
-                //palavras[palavrasDoc.back()] = nomesArquivos;
 
-           // } else
-             //   {
-               //     k = 0;
-                 //   wordAux[k] = word[j];
-                   // k++;
-                //}
-        //}
     }
-cout<<this->TermFrequency("labrador",palavrasDocs,1);
+
+ set<string>::iterator ita;
+    for(ita=palavras["ragnar"].begin();ita!=palavras["ragnar"].end();ita++){
+       cout<<*ita<<endl;
+    }
+
 }
 Leitura::Leitura(int qtdArquivos){
+    quantidadeArquivos=qtdArquivos;
     ReadFile(qtdArquivos);
 
 }
