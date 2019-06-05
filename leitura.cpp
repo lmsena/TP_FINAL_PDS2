@@ -82,6 +82,8 @@ void Leitura::ReadFile(int qtdArquivos){
                 set<string>indicePalavrasRepetidas=palavras[word];
                 indicePalavrasRepetidas.insert(nomeArquivo[i]);
                 palavras[word]=indicePalavrasRepetidas;
+               // acesso alternativo a palavra word 
+               // palavras.at(word) = indiciePalavrasRepetidas;
             }
           
           }
