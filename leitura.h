@@ -38,7 +38,7 @@ class Leitura{
         list<string>listaPalavras;
         map <string, set<string> >palavras;
 
-
+friend class Ranking;
 
 };
 
