@@ -18,17 +18,13 @@ public:
     Ranking();
     ~Ranking();
 
-    //calcula o idf de cada palavra
-    double idf(string wordIDF);
-
-    // coordenadas de um vetor correspondente a um documento
+     // coordenadas de um vetor correspondente a um documento
     // da base de dados (indicie 'W')
-    double coordenadas_W_doc(string wordW, vector < list<string> > pal_dos_doc, int k, );
+   double coordenadas_W(string wordW, vector< list<string> >palavras_no_doc, int posicao_doc );
 
 
 
-
-
+   friend class Indice;
    friend class Leitura;
 };
 
