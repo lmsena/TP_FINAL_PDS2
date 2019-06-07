@@ -1,13 +1,8 @@
 #include "ranking.h"
 
-
-double Ranking::idf(string wordIDF)
+double Ranking::coordenadas_W(string wordW, vector< list<string> >palavras_no_doc, int posicao_doc )
 {
-   list<string>x;
-   x = palavras[wordIDF];
-  // x = palavras.at(wordIDF).second;
-  // idf = log2(quantidadeArquivos / this->palavras->second.size());
-   idf = log2(quantidadeArquivos / x.second);
-
-    return idf;
+    double W = termFrequency(wordW, vector< list<string> >palavras_no_doc, int posicao_doc ) * idf(wordW);
+    return W;
 }
+
