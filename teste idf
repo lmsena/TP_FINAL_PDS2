@@ -1,0 +1,31 @@
+#include <iostream>
+#include<map>
+#include<string>
+#include <list>
+#include<math.h>
+#include<set>
+
+using namespace std;
+
+int main() {
+string wordIDF = "abc";
+double quantidadeArquivos = 10;
+map<string, set<string>> palavras;
+set<string> d;
+d.insert("a1");
+d.insert("a2");
+palavras["abc"] = d;
+
+cout << d.size();
+
+
+   set<string>d;
+   d = palavras[wordIDF];
+   //x = palavras.at(wordIDF).second;
+  // idf = log2(quantidadeArquivos / this->palavras->second.size());
+  double idf = log2(quantidadeArquivos / d.size());
+
+cout << idf;
+
+	return 0;
+}
