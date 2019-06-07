@@ -10,16 +10,19 @@ using namespace std;
 int main() {
 string wordIDF = "abc";
 double quantidadeArquivos = 10;
-map<string, set<string>> palavras;
+map< string, set<string> > palavras;
 set<string> d;
 d.insert("a1");
 d.insert("a2");
+d.insert("a3");
+d.insert("a4");
+d.insert("a5");
 palavras["abc"] = d;
 
-cout << d.size();
+cout << d.size() << "\n";
 
 
-   set<string>d;
+
    d = palavras[wordIDF];
    //x = palavras.at(wordIDF).second;
   // idf = log2(quantidadeArquivos / this->palavras->second.size());
