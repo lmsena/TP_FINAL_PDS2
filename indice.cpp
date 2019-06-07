@@ -1,13 +1,6 @@
  
-#include "Indice.h"
-#include <iostream>
-#include <fstream>
-#include <string>
-#include<algorithm>
-#include<list>
-#include<set>
-#include<vector>
-using namespace std;
+#include "Indice.h" // "indice.h" ? ou o i fica maiusculo msm?
+
 
 //Retorna true se uma palavra pertence a um arquivo
 bool Indice::Pertence(string word){
