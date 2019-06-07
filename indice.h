@@ -6,6 +6,8 @@
 #include<vector>
 #include<set>
 #include<map>
+#include<algorithm>
+#include <iostream>
 using namespace std;
 
 class Indice{
