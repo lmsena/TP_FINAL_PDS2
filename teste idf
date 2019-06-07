@@ -27,6 +27,8 @@ cout << d.size() << "\n";
    //x = palavras.at(wordIDF).second;
   // idf = log2(quantidadeArquivos / this->palavras->second.size());
   double idf = log2(quantidadeArquivos / d.size());
+  
+  //log2(10/5) = log2(2) = 1
 
 cout << idf;
 
