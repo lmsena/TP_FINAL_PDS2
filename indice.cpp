@@ -48,11 +48,9 @@ int Indice::TermFrequency(string word,vector< list<string> >palavras,int i){
 
 double Indice::idf(string wordIDF)
 {
-   list<string>x;
-   x = palavras[wordIDF];
-  // x = palavras.at(wordIDF).second;
-  // idf = log2(quantidadeArquivos / this->palavras->second.size());
-   double idf = log2(quantidadeArquivos / x.size());
+   list<string> list_arquivos_palavra;
+   list_arquivos_palavra = palavras[wordIDF];
+   double idf = log2(quantidadeArquivos / list_arquivos_palavra.size());
 
     return idf;
 }
