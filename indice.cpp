@@ -52,7 +52,7 @@ double Indice::idf(string wordIDF)
    x = palavras[wordIDF];
   // x = palavras.at(wordIDF).second;
   // idf = log2(quantidadeArquivos / this->palavras->second.size());
-   idf = log2(quantidadeArquivos / x.size());
+   double idf = log2(quantidadeArquivos / x.size());
 
     return idf;
 }
