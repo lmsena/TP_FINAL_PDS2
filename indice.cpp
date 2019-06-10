@@ -1,6 +1,5 @@
- 
-#include "Indice.h" // "indice.h" ? ou o i fica maiusculo msm?
-
+#include "indice.h"
+using namespace std;
 
 //Retorna true se uma palavra pertence a um arquivo
 bool Indice::Pertence(string word){
@@ -12,7 +11,7 @@ bool Indice::Pertence(string word){
     }
 }
 
-//converte os caracteres de uma string que s√£o maiusculos para minusculo
+//converte os caracteres de uma string que s„o maiusculos para minusculo
 void Indice::Tudominusculo(string&word){
     for(unsigned int i=0;i<word.size();i++){
         word[i]=tolower(word[i]);
@@ -33,24 +32,13 @@ void Indice::TiraCaracter(string&word){
 
 //Retorna o numero de vezes que a palavra apareceu em um arquivo
 int Indice::TermFrequency(string word,vector< list<string> >palavras,int i){
-    list<string>aux=palavras[i];
     list<string>::iterator it;
     int ocorrencias=0;
-    for(it=aux.begin();it!=aux.end();it++){
+    for(it=palavras[i].begin();it!=palavras[i].end();it++){
         if(*it==word){
             ocorrencias++;
         }
 
     }
     return ocorrencias;
-}
-
-
-double Indice::idf(string wordIDF)
-{
-   list<string> list_arquivos_palavra;
-   list_arquivos_palavra = palavras[wordIDF];
-   double idf = log2(quantidadeArquivos / list_arquivos_palavra.size());
-
-    return idf;
 }

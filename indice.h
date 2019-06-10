@@ -6,28 +6,45 @@
 #include<vector>
 #include<set>
 #include<map>
-#include<algorithm>
-#include <iostream>
 using namespace std;
 
+//classe para criar o indice invertido
 class Indice{
 
 public:
-    double idf(string wordIDF);
+    //RETORNA TRUE SE UMA PALAVRA PERTENCE A UM ARQUIVO
     bool Pertence(string word);
+    //CONVERTE TODAS AS LETRAS DE UMA PALAVRA PARA MINUSCULO
     void Tudominusculo(string&word);
+    //REMOVE CARACTERES , . ;: !][-()
     void TiraCaracter(string&word);
+    //RETORNA QUANTAS VEZES UMA PALAVRA APARECE EM UM ARQUIVO
     int TermFrequency(string word,vector< list<string> >palavras,int i);
     //armazena as palavras de todos os documentos ou seja o list de cada arquivo
-    vector < list<string> > palavrasDocs;
+    vector <list <string> > palavrasDocs;
     //armazena as palavras de um unico arquivo
     list <string> wordFile;
-    vector <string> nomeArquivo;
-    int quantidadeArquivos;
-    list<string>listaPalavras;
+    //MAP QUE CONTEM O INDICE INVERTIDO
     map <string, set<string> >palavras;
 
-    friend class Leitura;
-    friend class Ranking;
+
+
+
+friend class Ranking;
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif
+
