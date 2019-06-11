@@ -1,47 +1,41 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include<algorithm>
 #include "leitura.h"
+#include"ranking.h"
+#include "indice.h"
+#include <fstream>
 using namespace std;
 
-// tira caracteres de uma string
-void tiraCaracter(string&word){
-    for(unsigned int i=0;i<word.size();i++){
-        if(word[i]=='.'||word[i]=='?'||word[i]=='/'||word[i]==';'||word[i]==']'||word[i]=='['||word[i]=='-'||word[i]==')'||word[i]=='('||word[i]==','||word[i]==':'){
-            word.erase(word.begin()+i);
-            i=i-1;
-        }
 
 
 
+void Maquina_busca(int numberFiles){
+    Leitura leitura(numberFiles);
+    Ranking ranking;
+    Indice indice;
+    leitura.ReadFile(leitura.quantidadeArquivos,indice);
+    //colocado as coordenadas de cada palavra referente a cada cada arquivo em um vetor
+    for(int i=0;i<leitura.quantidadeArquivos;i++){
+        ranking.coordenadas_W(indice,i,leitura.quantidadeArquivos);
     }
+
+vector<double> teste=ranking.coordenadas_docs[1];
+for(unsigned int i=0;i<teste.size();i++){
+        cout<<teste[i]<<endl;
+
+}
+    ranking.consultaQ(indice);
+    ranking.coordenadas_Q(indice,leitura.quantidadeArquivos);
+    ranking.Similaridade(ranking.coordenadas_docs,ranking.coordenadasBusca);
+    ranking.ImprimeRanking(leitura.nomeArquivo);
+
+
 
 }
 
-string Tudominusculo(string &word){
+//ate aqui read
 
-    for(unsigned int i=0;i<word.size();i++){
-        word[i]=tolower(word[i]);
 
-    }
-    tiraCaracter(word);
-    //cout<<word<<"aqui"<<endl;
-    return word;
-}
 int main () {
-  //string word;
-  //ifstream arquivo;
-  //arquivo.open("teste.txt");
-  //while(!arquivo.eof()){
-  //  arquivo>>word;
-    //cout<<word<<endl;
-    //cout<<"here"<<endl;
- //   Tudominusculo(word);
-   // cout<<word<<endl;
 
-  //}
-  Leitura(1);
-
+    Maquina_busca(4);
   return 0;
 }
