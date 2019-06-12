@@ -1,0 +1,46 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "leitura.h"
+#include "doctest.h"
+#include <algorithm>
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+using namespace std;
+
+class Teste
+{
+public:
+        ifstream arquivo_(const Leitura &L)
+        {
+            return L.arquivo_;
+        }
+      
+        vector <string> nomeArquivo(const Leitura &L)
+        {
+            return L.nomeArquivo;
+        }
+        int quantidadeArquivos(const Leitura &L)
+        {
+            return quantidadeArquivos;
+        }
+      
+};
+
+
+TEST_SUITE("Leitura")
+{
+
+    TEST_CASE("leitura(2)")
+    {
+        Leitura L(2);
+        CHECK(Teste::quantidadeArquivos(L) == 2);
+    }
+
+     TEST_CASE("leitura(4)")
+    {
+        Leitura L(4);
+        CHECK(Teste::quantidadeArquivos(L) == 4);
+    }
+    
+}
