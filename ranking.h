@@ -22,9 +22,6 @@ public:
     //Construtor da classe Ranking
     Ranking();
 
-    //Destrutor para a classe Ranking
-    //~Ranking();
-
     //calcula o idf de cada palavra
     double idf(string wordIDF,Indice indice,int quantidadeArquivos);
 
