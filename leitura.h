@@ -18,17 +18,14 @@ class Leitura{
 
         Indice indice;
 
-        //lÍ uma quantidade de arquivos e dentro dela ser· feita uma consulta de palavras e ser· gerado um ranking de arquivos que contem as palavras da busca
+        //l√™ uma quantidade de arquivos e dentro dela ser√° feita uma consulta de palavras e ser√° gerado um ranking de arquivos que contem as palavras da busca
         void ReadFile(int qtdArquivos,Indice &indice);
 
-        //Cria um destrutor para a classe Leitura
-        //~Leitura();
-        //
 
         //ponteiro para ler as palavras do arquivo
         ifstream arquivo_;
 
-        //vetor onde s„o armazenados os nomes dos arquivos
+        //vetor onde s√£o armazenados os nomes dos arquivos
         vector <string> nomeArquivo;
 
         //quantidade de Arquivos lidos
