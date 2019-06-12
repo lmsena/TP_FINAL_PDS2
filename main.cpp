@@ -31,7 +31,7 @@ void Maquina_busca(int numberFiles,int palavrasToFind){
 
 }
 
-//ate aqui read
+
 
 
 int main () {
