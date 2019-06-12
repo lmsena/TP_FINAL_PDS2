@@ -1,3 +1,4 @@
+
 #ifndef RANKING_H_INCLUDED
 #define RANKING_H_INCLUDED
 #include <string>
@@ -38,7 +39,7 @@ public:
     int TermFrequency_Q(string word,vector<string>palavrasBusca);
 
     //inicializa uma consulta de Palavras
-    void consultaQ(Indice indice);
+    void consultaQ(Indice indice,int quantidadePalavras);
 
     //calcula as similaridades
     void Similaridade(vector <vector<double> > coordenadas_docs,vector<double>coordenadasBusca);
@@ -61,6 +62,9 @@ public:
     //Armazena as similaridades
     vector<double> similaridade_;
 
+    //Numero de Palavras que serao buscadas
+    int quantidadePalavras;
+
 
 
 
@@ -69,4 +73,3 @@ public:
 
 
 #endif // RANKING_H_INCLUDED
-

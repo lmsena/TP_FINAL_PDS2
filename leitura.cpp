@@ -1,22 +1,32 @@
+
 #include"leitura.h"
 
 using namespace std;
 
+//Construtor para a classe Leitura
+Leitura::Leitura(int qtdArquivos){
+    quantidadeArquivos=qtdArquivos;
+
+}
+
 
 
 //Le os arquivos
-void Leitura::ReadFile(int qtdArquivos){
+void Leitura::ReadFile(int quantidadeArquivos,Indice &indice){
+//Recebendo os nomes dos arquivos que serao lidos
+    for(int i=0;i<quantidadeArquivos;i++){
+        cout<<"Digite o nome do "<<i+1<<" arquivo no formato file.txt"<<endl;
+        string arquivoTxt;
+        cin>>arquivoTxt;
+        nomeArquivo.push_back(arquivoTxt);
+    }
 
-    Indice indice;
-    Ranking ranking;
-    nomeArquivo.push_back("d1.txt");
-    nomeArquivo.push_back("d2.txt");
-    nomeArquivo.push_back("d3.txt");
-    nomeArquivo.push_back("d4.txt");
+
+    list<string>wordFile;
 
 
 //Lendo e manipulando as palavras de cada arquivo
-    for(int i=0;i<qtdArquivos;i++){
+    for(int i=0;i<quantidadeArquivos;i++){
         arquivo_.open(nomeArquivo[i].c_str(),std::ios::in);
         if(arquivo_.good()){
       while(!arquivo_.eof()){
@@ -24,7 +34,7 @@ void Leitura::ReadFile(int qtdArquivos){
             arquivo_>>word;
             indice.Tudominusculo(word);
             //já insere a palavra lida e manipulada na lista de palavras do documento
-            indice.wordFile.push_back(word);
+            wordFile.push_back(word);
             //inserindo a palavra em um Map que relaciona  quais arquivos contem a palavra
             if(!indice.Pertence(word)){
                 set<string>indicePalavras;
@@ -45,29 +55,14 @@ void Leitura::ReadFile(int qtdArquivos){
             quantidadeArquivos--;
             i--;
         }
-        indice.palavrasDocs.push_back(indice.wordFile);
-        indice.wordFile.clear();
+        indice.palavrasDocs.push_back(wordFile);
+        wordFile.clear();
         arquivo_.close();
 
     }
-    //colocado as coordenadas de cada palavra referente a cada cada arquivo em um vetor
-    for(int i=0;i<quantidadeArquivos;i++){
-        ranking.coordenadas_W(indice,i,quantidadeArquivos);
+    if(quantidadeArquivos==0){
+        cout<<"Nao foi possivel abrir nenhum arquivo"<<endl;
+        exit(2);
     }
-
-vector<double> teste=ranking.coordenadas_docs[1];
-for(unsigned int i=0;i<teste.size();i++){
-        cout<<teste[i]<<endl;
-
 }
-    ranking.consultaQ(indice);
-    ranking.coordenadas_Q(indice,quantidadeArquivos);
-    ranking.Similaridade(ranking.coordenadas_docs,ranking.coordenadasBusca);
-    ranking.ImprimeRanking(nomeArquivo);
-}
-//Construtor para a classe Leitura
-Leitura::Leitura(int qtdArquivos){
-    quantidadeArquivos=qtdArquivos;
-    ReadFile(qtdArquivos);
 
-}

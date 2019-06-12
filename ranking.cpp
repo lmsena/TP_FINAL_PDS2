@@ -31,12 +31,9 @@ void Ranking::coordenadas_W(Indice indice, int posicao_doc,int quantidadeArquivo
     coordenadas.clear();
 }
 //GERA O TERMINAL DE CONSULTA DE PALAVRAS NO PROMPT DE COMANDO
-void Ranking::consultaQ(Indice indice){
-    cout<<"Insira a quantidade de palavras que voce deseja procurar"<<endl;
-    int quantidadePalavras;
-    cin>>quantidadePalavras;
+void Ranking::consultaQ(Indice indice,int quantidadePalavras){
     for(int i=0;i<quantidadePalavras;i++){
-        cout<<"Digite a palavra que voce deseja pesquisar"<<endl;
+        cout<<"Digite a "<<i+1<<" palavra que voce deseja pesquisar"<<endl;
         string palavras;
         cin>>palavras;
         indice.Tudominusculo(palavras);
@@ -132,4 +129,3 @@ void Ranking::ImprimeRanking(vector<string>nomeArquivo){
 
 
 }
-

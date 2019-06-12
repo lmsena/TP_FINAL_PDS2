@@ -1,0 +1,4 @@
+Para utilizar o programa o usuário deve fornecedor como parâmetro da funcão Maquina_busca,pesente na main, um inteiro correspondendo ao número 
+de Arquivos que serão lidos e outro inteiro referente ao numero de palavras que serao consultadas.
+Após, será solicitado no terminal os nomes dos arquivos em sequencia.
+Posteriormente será solicitado as palavras de busca.E assim será gerado o Ranking.

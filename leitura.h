@@ -16,14 +16,15 @@ class Leitura{
         //cria um contrutor para abrir arquivo
         Leitura(int qtdArquivos);
 
+        Indice indice;
+
         //lê uma quantidade de arquivos e dentro dela será feita uma consulta de palavras e será gerado um ranking de arquivos que contem as palavras da busca
-        void ReadFile(int qtdArquivos);
+        void ReadFile(int qtdArquivos,Indice &indice);
 
         //Cria um destrutor para a classe Leitura
         //~Leitura();
         //
 
-    private:
         //ponteiro para ler as palavras do arquivo
         ifstream arquivo_;
 

@@ -1,5 +1,9 @@
+
 #include "indice.h"
 using namespace std;
+
+Indice ::Indice(){
+}
 
 //Retorna true se uma palavra pertence a um arquivo
 bool Indice::Pertence(string word){
