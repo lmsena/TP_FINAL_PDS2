@@ -1,0 +1,59 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "indice.h"
+#include "leitura.h"
+#include "ranking.h"
+#include "doctest.h"
+#include <algorithm>
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+using namespace std;
+
+
+TESTE_SUITE("Ranking")
+{   
+    
+    TESTE_CASE("se IDF nao existe")
+    {
+        Leitura L(4);
+        Indice I();
+        string wordtIDF = "nao existe";
+        int qt = 4;
+        CHECK(Ranking::idf(wordtIDF, I, qt) == null);
+    }
+    
+    TESTE_CASE("IDF")
+    {
+        Leitura L(4);
+        Indice I();
+        string wordtIDF = "nao existe";
+        int qt = 4;
+        CHECK_FALSE(Ranking::idf(wordtIDF, I, qt) == 1);
+    }
+    
+    TESTE_CASE("TERM FREQUENCY da consulta")
+    {
+        Leitura L(4);
+        Indice I();
+        string wordtTFQ = "teste";
+        vector<string> palavrasBusca;
+        palavrasBusca.push_back("teste");
+        palavrasBusca.push_back("teste");
+        CHECK(Ranking::TermFrequency_Q(wordTFQ, palavrasBusca));
+    }
+    
+    TESTE_CASE("pesos")
+    {
+        Leitura L(4);
+        Indice I();
+        
+        vector<double> pesos;
+       pesos.push_back(1);
+       pesos.push_back(3);
+       pesos.push_back(4);
+       pesos.push_back(7);
+       CHECK(Ranking::RetornavalorMaior(pesos) == 7);
+    }
+    
+}
