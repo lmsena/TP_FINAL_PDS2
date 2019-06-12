@@ -1,0 +1,50 @@
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "indice.h"
+#include "leitura.h"
+#include "doctest.h"
+#include <algorithm>
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+
+using namespace std;
+
+
+
+TESTE_SUITE("Indice")
+{
+
+    TESTE_CASE("Indice tudo minusculo")
+    {
+        Leitura L(4);
+        string wordt = "TUDO MINUSCULO";
+        CHECK(Indice.Tudominusculo(&wordt) == "tudo minusculo");
+    }
+
+    TESTE_CASE("indice tira caracter")
+    {
+        Leitura L(4);
+        string wordt = "tire!";
+        CHECK(Indice.TiraCaracter(&wordt) == "tire");
+
+    }
+
+    TEST_CASE("Indice pertence")
+    {
+        Leitura L(4);
+        string wordP = "a";
+        CHECK(Indice.Pertence(wordP) == true);
+
+
+    }
+
+    TEST_CASE("leitura termFrequency")
+    {
+        Leitura L(4);
+        string wordTF = "a";
+        int posicao_no_vetor = 0; // correspondente ao documento numero 1 = d1
+        CHECK(Indice.TermFrequency(wordTF, Indice.palavrasDocs, posicao_no_vetor) == 3);
+
+    }
+}
