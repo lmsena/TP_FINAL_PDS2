@@ -15,7 +15,7 @@ bool Indice::Pertence(string word){
     }
 }
 
-//converte os caracteres de uma string que s„o maiusculos para minusculo
+//converte os caracteres de uma string que s√£o maiusculos para minusculo
 void Indice::Tudominusculo(string&word){
     for(unsigned int i=0;i<word.size();i++){
         word[i]=tolower(word[i]);
@@ -27,7 +27,7 @@ void Indice::Tudominusculo(string&word){
 //Remove da string os caracteres .?/,;][-)(:
 void Indice::TiraCaracter(string&word){
     for(unsigned int i=0;i<word.size();i++){
-        if(word[i]=='.'||word[i]=='?'||word[i]=='/'||word[i]==';'||word[i]==']'||word[i]=='['||word[i]=='-'||word[i]==')'||word[i]=='('||word[i]==','||word[i]==':'||word[i]=='!'){
+        if(word[i]=='.'||word[i]=='?'||word[i]=='/'||word[i]==';'||word[i]==']'||word[i]=='['||word[i]=='-'||word[i]==')'||word[i]=='('||word[i]==','||word[i]==':'||word[i]=='!'||word[i]=='\''){
             word.erase(word.begin()+i);
             i=i-1;
         }
