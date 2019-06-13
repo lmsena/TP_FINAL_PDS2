@@ -8,6 +8,10 @@
 
 using namespace std;
 
+/*
+
+atributos modificados para public
+
 class Teste
 {
 public:
@@ -25,22 +29,18 @@ public:
             return quantidadeArquivos;
         }
       
-};
+};*/
 
 
 TEST_SUITE("Leitura")
 {
 
-    TEST_CASE("leitura(2)")
-    {
-        Leitura L(2);
-        CHECK(Teste::quantidadeArquivos(L) == 2);
-    }
-
+    
      TEST_CASE("leitura(4)")
     {
-        Leitura L(4);
-        CHECK(Teste::quantidadeArquivos(L) == 4);
+        bool teste = true;
+        Leitura L(4,teste);
+        CHECK(Leitura::quantidadeArquivos(L) == 4);
     }
     
 }
