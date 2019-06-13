@@ -16,15 +16,17 @@ TESTE_SUITE("Indice")
 {
 
     TESTE_CASE("Indice tudo minusculo")
-    {
-        Leitura L(4);
+    { 
+        bool teste = true;
+        Leitura L(4,teste);
         string wordt = "TUDO MINUSCULO";
         CHECK(Indice.Tudominusculo(&wordt) == "tudo minusculo");
     }
 
     TESTE_CASE("indice tira caracter")
     {
-        Leitura L(4);
+        bool teste = true;
+        Leitura L(4,teste);
         string wordt = "tire!";
         CHECK(Indice.TiraCaracter(&wordt) == "tire");
 
@@ -32,7 +34,8 @@ TESTE_SUITE("Indice")
 
     TEST_CASE("Indice pertence")
     {
-        Leitura L(4);
+        bool teste = true;
+        Leitura L(4,teste);
         string wordP = "a";
         CHECK(Indice.Pertence(wordP) == true);
 
@@ -41,7 +44,8 @@ TESTE_SUITE("Indice")
 
     TEST_CASE("leitura termFrequency")
     {
-        Leitura L(4);
+        bool teste = true;
+        Leitura L(4,teste);
         string wordTF = "a";
         int posicao_no_vetor = 0; // correspondente ao documento numero 1 = d1
         CHECK(Indice.TermFrequency(wordTF, Indice.palavrasDocs, posicao_no_vetor) == 3);
