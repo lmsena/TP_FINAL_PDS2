@@ -16,7 +16,8 @@ TESTE_SUITE("Ranking")
     
     TESTE_CASE("se IDF nao existe")
     {
-        Leitura L(4);
+        bool teste = true;
+        Leitura L(4,teste);
         Indice I();
         string wordtIDF = "nao existe";
         int qt = 4;
@@ -25,7 +26,8 @@ TESTE_SUITE("Ranking")
     
     TESTE_CASE("IDF")
     {
-        Leitura L(4);
+        bool teste = true;
+        Leitura L(4,teste);
         Indice I();
         string wordtIDF = "a";
         int qt = 4;
@@ -34,7 +36,8 @@ TESTE_SUITE("Ranking")
     
     TESTE_CASE("TERM FREQUENCY da consulta")
     {
-        Leitura L(4);
+        bool teste = true;
+        Leitura L(4,teste);
         Indice I();
         string wordtTFQ = "teste";
         vector<string> palavrasBusca;
@@ -45,10 +48,11 @@ TESTE_SUITE("Ranking")
     
     TESTE_CASE("pesos")
     {
-        Leitura L(4);
-        Indice I();
+       bool teste = true;
+       Leitura L(4,teste);
+       Indice I();
         
-        vector<double> pesos;
+       vector<double> pesos;
        pesos.push_back(1);
        pesos.push_back(3);
        pesos.push_back(4);
